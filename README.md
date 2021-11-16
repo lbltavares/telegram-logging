@@ -28,7 +28,7 @@ from telegram_logging import TelegramHandler, TelegramFormatter
 ### Create a Formatter and a Handler:
 ```
 formatter = TelegramFormatter(
-    format="[%(asctime)s %(name)s] %(levelname)8s\n\n%(message)s",
+    fmt="[%(asctime)s %(name)s] %(levelname)8s\n\n%(message)s",
     datefmt="%d/%m/%Y %H:%M:%S",
     use_emoji=True)
 
