@@ -8,18 +8,16 @@ from telegram_logging import TelegramFormatter, TelegramHandler
 formatter = TelegramFormatter(
     fmt="[%(asctime)s %(name)s] %(levelname)8s\n\n%(message)s",
     datefmt="%d/%m/%Y %H:%M:%S",
-    use_emoji=True)
-
-handler = TelegramHandler(
-    bot_token="<Your Telegram Bot Token>",
-    chat_id="<Your Telegram Chat ID>",
-
+    use_emoji=True,
     # (Optional) If you want to use custom emojis:
     emoji_map={
         logging.DEBUG: "🐛",
         logging.INFO: "💡",
         logging.ERROR: "🚨",
     })
+
+handler = TelegramHandler(bot_token="<Your Telegram Bot Token>",
+                          chat_id="<Your Telegram Chat ID>")
 
 handler.setFormatter(formatter)
 
