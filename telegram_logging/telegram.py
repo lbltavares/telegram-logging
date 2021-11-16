@@ -19,10 +19,10 @@ class TelegramFormatter(logging.Formatter):
     }
 
     def __init__(self,
-                 fmt='%(asctime)s - %(levelname)s - %(message)s',
-                 datefmt=None,
-                 use_emoji=True,
-                 emoji_map=None):
+                 fmt: str = '%(asctime)s - %(levelname)s - %(message)s',
+                 datefmt: str = None,
+                 use_emoji: bool = True,
+                 emoji_map: dict = None):
         """
         :fmt: str, default: '%(asctime)s - %(levelname)s - %(message)s'\n
         :datefmt: str, default: None\n
@@ -46,14 +46,18 @@ class TelegramHandler(logging.Handler):
     Envia registros de log pelo telegram:
     https://core.telegram.org/bots/api#sendmessage
     """
-    def __init__(self, bot_token, chat_id, timeout=5, **params):
+    def __init__(self,
+                 bot_token: str,
+                 chat_id: str,
+                 timeout: int = 5,
+                 **params):
         """
-        :token: Telegram bot_token\n
+        :bot_token: Telegram bot_token\n
         :chat_id: Telegram chat_id\n
         :params: https://core.telegram.org/bots/api#sendmessage
         """
         logging.Handler.__init__(self)
-        self.token = bot_token
+        self.bot_token = bot_token
         self.chat_id = chat_id
         self.timeout = timeout
         self.kwargs = params
@@ -61,7 +65,7 @@ class TelegramHandler(logging.Handler):
 
     def emit(self, record):
         try:
-            url = f"https://api.telegram.org/bot{self.token}/sendMessage"
+            url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
             params = {
                 "chat_id": self.chat_id,
                 "text": self.format(record),
