@@ -67,6 +67,8 @@ Emoji | Level
 
 You can use your own set of emojis:
 
+![2021-11-16-13-34-57](https://user-images.githubusercontent.com/34322384/142026746-a01dd845-ed82-4c69-96cd-39d8afe2bab2.gif)
+
 ```
 formatter = TelegramFormatter(
     format="[%(asctime)s %(name)s] %(levelname)8s\n\n%(message)s",
