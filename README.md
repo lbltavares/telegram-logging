@@ -1,19 +1,22 @@
-# telegram-logging
 
-![python-publish](https://github.com/lbltavares/telegram-logging/actions/workflows/python-publish.yml/badge.svg?branch=main)
-
-Simple Telegram logging with zero dependencies!
-
-https://pypi.org/project/telegram-logging/
+<div align="center">
+    <h2>Simple Telegram logging with zero dependencies!</h2>
+    <a href="https://badgen.net/pypi/v/telegram-logging/"><img src="https://badgen.net/pypi/v/telegram-logging/"></a>
+    <a href="https://badgen.net/pypi/v/telegram-logging/"><img src="https://img.shields.io/pypi/dm/telegram-logging.svg"></a>
+    <img src="https://github.com/lbltavares/telegram-logging/actions/workflows/python-publish.yml/badge.svg?branch=main">
+</div>
 
 <div align="center">
     <img src="https://user-images.githubusercontent.com/34322384/142000274-8de885b7-b16d-4d77-b861-38ec9a35afef.png">
 </div>
 
-## Usage:
-➡️ See a full example in [examples/usage.py](https://github.com/lbltavares/telegram-logging/blob/main/examples/usage.py)
 
-🤖 [How to create a Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot)
+
+## Usage:
+
+➡️ See a full example in [examples/usage.py](https://github.com/lbltavares/telegram-logging/blob/main/examples/usage.py">examples/usage.py)
+
+[🤖 How to create a Telegram bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot)
 
 ### Install:
 
@@ -54,9 +57,9 @@ logger.setLevel(logging.DEBUG)
 
 logger.info("Hi, here is some information")
 ```
+---
 
-
-### Default Emojis:
+## Default Emojis:
 
 Emoji | Level
 ------|--------
