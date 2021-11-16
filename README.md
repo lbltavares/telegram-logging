@@ -4,6 +4,8 @@ A simple Telegram logging module with Handler and Formatter.
 
 https://pypi.org/project/telegram-logging/
 
+![logging](https://user-images.githubusercontent.com/34322384/141993281-9d246c73-316e-4e26-a25e-77fe5867011e.png)
+
 ## Usage:
 
 ### Install:
