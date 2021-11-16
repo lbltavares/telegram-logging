@@ -1,6 +1,6 @@
 # telegram-logging
 
-A simple Telegram logging module with Handler and Formatter.
+A simple Telegram logging module with zero dependencies!
 
 https://pypi.org/project/telegram-logging/
 
