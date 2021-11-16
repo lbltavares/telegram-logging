@@ -2,12 +2,11 @@
 """
 
 import logging
-from urllib import request, parse, error
+from urllib import error, parse, request
 
 
 class TelegramFormatter(logging.Formatter):
-    """
-    TelegramFormatter.
+    """TelegramFormatter.
     """
 
     EMOJI_MAP = {
@@ -23,8 +22,7 @@ class TelegramFormatter(logging.Formatter):
                  datefmt: str = None,
                  use_emoji: bool = True,
                  emoji_map: dict = None):
-        """
-        :fmt: str, default: '%(asctime)s - %(levelname)s - %(message)s'\n
+        """:fmt: str, default: '%(asctime)s - %(levelname)s - %(message)s'\n
         :datefmt: str, default: None\n
         :use_emoji: bool, default: True\n
         :emoji_map: dict, default: None\n
@@ -42,8 +40,7 @@ class TelegramFormatter(logging.Formatter):
 
 
 class TelegramHandler(logging.Handler):
-    """
-    Envia registros de log pelo telegram:
+    """Send log messages to Telegram.
     https://core.telegram.org/bots/api#sendmessage
     """
     def __init__(self,
@@ -51,8 +48,7 @@ class TelegramHandler(logging.Handler):
                  chat_id: str,
                  timeout: int = 5,
                  **params):
-        """
-        :bot_token: Telegram bot_token\n
+        """:bot_token: Telegram bot_token\n
         :chat_id: Telegram chat_id\n
         :params: https://core.telegram.org/bots/api#sendmessage
         """
