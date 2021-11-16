@@ -1,8 +1,8 @@
 
 <div align="center">
     <h2>Simple Telegram logging with zero dependencies!</h2>
-    <a href="https://badgen.net/pypi/v/telegram-logging/"><img src="https://badgen.net/pypi/v/telegram-logging/"></a>
-    <a href="https://badgen.net/pypi/v/telegram-logging/"><img src="https://img.shields.io/pypi/dm/telegram-logging.svg"></a>
+    <a href="https://pypi.org/project/telegram-logging/"><img src="https://badgen.net/pypi/v/telegram-logging/"></a>
+    <a href="https://pypi.org/project/telegram-logging/"><img src="https://img.shields.io/pypi/dm/telegram-logging.svg"></a>
     <img src="https://github.com/lbltavares/telegram-logging/actions/workflows/python-publish.yml/badge.svg?branch=main">
 </div>
 
