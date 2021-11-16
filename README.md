@@ -6,6 +6,12 @@ https://pypi.org/project/telegram-logging/
 
 ## Usage:
 
+### Install:
+
+```
+pip install telegram-logging
+```
+
 ### Import:
 
 ```
