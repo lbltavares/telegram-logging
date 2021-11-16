@@ -2,7 +2,7 @@
 
 A simple Telegram logging module with Handler and Formatter.
 
-https://pypi.org/project/telegram-logging/0.14/
+https://pypi.org/project/telegram-logging/
 
 ## Usage:
 
