@@ -1,5 +1,7 @@
 # telegram-logging
 
+![python-publish](https://github.com/lbltavares/telegram-logging/actions/workflows/python-publish.yml/badge.svg?branch=main)
+
 Simple Telegram logging with zero dependencies!
 
 https://pypi.org/project/telegram-logging/
