@@ -7,10 +7,8 @@
 </div>
 
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/34322384/142000274-8de885b7-b16d-4d77-b861-38ec9a35afef.png">
+    <img src="https://user-images.githubusercontent.com/34322384/142266595-7b98a832-cd1e-4ff4-a1b7-2df8d7010289.png">
 </div>
-
-
 
 ## Usage:
 
@@ -57,28 +55,25 @@ logger.setLevel(logging.DEBUG)
 
 logger.info("Hi, here is some information")
 ```
----
 
-## Default Emojis:
+## Emojis:
 
-Emoji | Level
-------|--------
-  ⚪️  | DEBUG 
-  🔵  | INFO 
-  🟠  | WARNING
-  🔴  | ERROR
-  🔥  | CRITICAL
-  
+These are the default emojis:
 
-You can use your own set of emojis:
+* ⚪️ DEBUG 
+* 🔵 INFO 
+* 🟠 WARNING
+* 🔴 ERROR
+* 🔥 CRITICAL
+ 
+You can customize them however you want:
 
-![telegram](https://user-images.githubusercontent.com/34322384/142038851-7ed8cf04-df2c-4705-8066-6e21e817d186.gif)
+<img style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" src="https://user-images.githubusercontent.com/34322384/142038851-7ed8cf04-df2c-4705-8066-6e21e817d186.gif">
 
 
 ```
 formatter = TelegramFormatter(
-    format="[%(asctime)s %(name)s] %(levelname)8s\n\n%(message)s",
-    datefmt="%d/%m/%Y %H:%M:%S",
+    ...
     use_emoji=True,
     emoji_map={
         logging.DEBUG: "🐛",
