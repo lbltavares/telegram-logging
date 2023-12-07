@@ -2,7 +2,7 @@
 """
 
 import logging
-from urllib import error, parse, request
+import requests
 
 
 class TelegramFormatter(logging.Formatter):
@@ -64,19 +64,15 @@ class TelegramHandler(logging.Handler):
         self.notification_level = notification_level
 
     def emit(self, record):
+        url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
+        params = {
+            "chat_id": self.chat_id,
+            "text": self.format(record),
+        }
+        if(record.levelno < self.notification_level):
+            params['disable_notification'] = True
+        params.update(self.kwargs)
         try:
-            url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
-            params = {
-                "chat_id": self.chat_id,
-                "text": self.format(record),
-            }
-            if(record.levelno < self.notification_level):
-                params['disable_notification'] = True
-            params.update(self.kwargs)
-            data = parse.urlencode(params).encode()
-            req = request.Request(url, data=data)
-            with request.urlopen(req, timeout=self.timeout):
-                pass
-
-        except error.URLError:
-            self.handleError(record)
+            resp = requests.get(url, params=params, timeout=self.timeout)
+        except Exception as e:
+            print(f"Exception in sending TG msg. Exception: {e}")
