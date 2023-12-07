@@ -2,7 +2,7 @@
 """
 
 import logging
-from urllib import error, parse, request
+import requests
 
 
 class TelegramFormatter(logging.Formatter):
@@ -47,9 +47,12 @@ class TelegramHandler(logging.Handler):
                  bot_token: str,
                  chat_id: str,
                  timeout: int = 5,
+                 notification_level=logging.DEBUG,
                  **params):
         """:bot_token: Telegram bot_token\n
         :chat_id: Telegram chat_id\n
+        :timeout: Timeout for Telegram API call\n
+        :notification_level: logging level below which notification will be disabled\n
         :params: https://core.telegram.org/bots/api#sendmessage
         """
         logging.Handler.__init__(self)
@@ -58,19 +61,18 @@ class TelegramHandler(logging.Handler):
         self.timeout = timeout
         self.kwargs = params
         self.kwargs["parse_mode"] = "HTML"
+        self.notification_level = notification_level
 
     def emit(self, record):
+        url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
+        params = {
+            "chat_id": self.chat_id,
+            "text": self.format(record),
+        }
+        if(record.levelno < self.notification_level):
+            params['disable_notification'] = True
+        params.update(self.kwargs)
         try:
-            url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
-            params = {
-                "chat_id": self.chat_id,
-                "text": self.format(record),
-            }
-            params.update(self.kwargs)
-            data = parse.urlencode(params).encode()
-            req = request.Request(url, data=data)
-            with request.urlopen(req, timeout=self.timeout):
-                pass
-
-        except error.URLError:
-            self.handleError(record)
+            resp = requests.get(url, params=params, timeout=self.timeout)
+        except Exception as e:
+            print(f"Exception in sending TG msg. Exception: {e}")

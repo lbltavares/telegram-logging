@@ -41,7 +41,7 @@ handler = TelegramHandler(
 
 handler.setFormatter(formatter)
 ```
-*You can get a list of all available handler params [here](https://core.telegram.org/bots/api#sendmessage)
+*You can get a list of all available handler params [here](https://core.telegram.org/bots/api#sendmessage)*
 
 ### Use it:
 
@@ -79,5 +79,17 @@ formatter = TelegramFormatter(
         logging.DEBUG: "🐛",
         logging.INFO: "💡",
         logging.ERROR: "🚨",
-    })
+    }
+)
 ```
+
+## Notifications:
+
+You can disable telegram notification below certain logging level (https://core.telegram.org/bots/api#sendmessage). 
+```
+formatter = TelegramFormatter(
+    ...
+    notification_level=logging.WARNING
+)
+```
+This will disable notification for all logs below `WARNING` level (`DEBUG` and `INFO` will be silently delivered.)
